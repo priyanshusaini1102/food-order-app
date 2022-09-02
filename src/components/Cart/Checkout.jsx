@@ -70,6 +70,8 @@ const Checkout = (props) => {
   }`;
 
   return (
+    <div className="check-form">
+
     <form className={classes.form} onSubmit={confirmHandler}>
       <div className={nameControlClasses}>
         <label htmlFor='name'>Your Name</label>
@@ -100,6 +102,7 @@ const Checkout = (props) => {
         <button className={classes.submit}>Confirm</button>
       </div>
     </form>
+    </div>
   );
 };
 
