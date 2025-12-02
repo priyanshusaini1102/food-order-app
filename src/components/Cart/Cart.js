@@ -81,17 +81,32 @@ const cartModalContent = <React.Fragment>
       </div>}
       </React.Fragment>;
 
-      const isSubmittingModalContent = <p>Sending Order Data...</p>;
+      const isSubmittingModalContent = (
+        <div className={classes.submitting}>
+          <div className={classes.spinner}></div>
+          <p>Sending Order Data...</p>
+        </div>
+      );
 
-      const didSubmitModalContent = <React.Fragment>
-        <p>Success</p>
-        <div className={classes.actions}>
-        <button className={classes.button} onClick={props.onClose}>
-          Close
-        </button>
-        
-      </div>
-        </React.Fragment>;
+      const didSubmitModalContent = (
+        <React.Fragment>
+          <div className={classes.success}>
+            <div className={classes.checkmark}>
+              <svg viewBox="0 0 52 52">
+                <circle className={classes.checkmarkCircle} cx="26" cy="26" r="25" fill="none"/>
+                <path className={classes.checkmarkCheck} fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+              </svg>
+            </div>
+            <p className={classes.successMessage}>Order Placed Successfully!</p>
+            <p className={classes.successSubtext}>Your delicious meal is on its way!</p>
+          </div>
+          <div className={classes.actions}>
+            <button className={classes.button} onClick={props.onClose}>
+              Close
+            </button>
+          </div>
+        </React.Fragment>
+      );
 
   return (
     <Modal onClose={props.onClose}>

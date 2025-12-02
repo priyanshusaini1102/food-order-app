@@ -10,13 +10,13 @@
 
 .modal {
   position: fixed;
-  top: 20vh;
+  top: 10vh;
   left: 5%;
   width: 90%;
+  max-height: 80vh;
   background-color: white;
   padding: 1rem;
-  margin-bottom: 2rem;
-  overflow-y: scroll;
+  overflow-y: auto;
   border-radius: 14px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   z-index: 30;

@@ -1,16 +1,48 @@
 .form {
   margin: 1rem 0;
-  height: 17rem;
+  padding: 0 0.5rem;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .control {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  animation: fadeInUp 0.4s ease-out;
+  animation-fill-mode: both;
+}
+
+.control:nth-child(1) { animation-delay: 0.1s; }
+.control:nth-child(2) { animation-delay: 0.2s; }
+.control:nth-child(3) { animation-delay: 0.3s; }
+.control:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .control label {
   font-weight: bold;
   margin-bottom: 0.25rem;
   display: block;
+  color: #333;
+  transition: color 0.3s ease;
 }
 
 .control input {
@@ -19,6 +51,15 @@
   border-radius: 4px;
   width: 20rem;
   max-width: 100%;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.control input:focus {
+  outline: none;
+  border-color: #8a2b06;
+  box-shadow: 0 0 0 3px rgba(138, 43, 6, 0.1);
+  transform: translateY(-1px);
 }
 
 .actions {
@@ -36,22 +77,57 @@
   border-radius: 25px;
   padding: 0.5rem 2rem;
   margin-bottom: 1rem;
+  transition: all 0.3s ease;
 }
 
-.actions button:hover,
+.actions button:hover {
+  background-color: #ffe6dc;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 .actions button:active {
   background-color: #ffe6dc;
+  transform: translateY(0);
 }
 
 .actions .submit {
   border: 1px solid #5a1a01;
-  background-color: #5a1a01;
+  background-color: #8a2b06;
   color: white;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.actions .submit:hover,
-.actions .submit:active {
+.actions .submit::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.actions .submit:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+.actions .submit:hover {
   background-color: #7a2706;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(138, 43, 6, 0.3);
+}
+
+.actions .submit:active {
+  background-color: #5a1a01;
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(138, 43, 6, 0.2);
 }
 
 .invalid label {
